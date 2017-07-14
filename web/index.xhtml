@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table border="1">
+
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>documento</th>
+                        <th>nombre</th>
+                        <th>opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <c:forEach items="#{controlador.listaUsuarios}" var="l">
+                        <tr>
+                            <td><h:outputText value="#{l.id}"></h:outputText></td> 
+                            <td>  <h:outputText value="#{l.documento}"></h:outputText></td> 
+                            <td>  <h:outputText value="#{l.nombre}"></h:outputText></td> 
+                            <td> <h:commandButton action="#{controlador.prepararEditar(l)}" value="editar"></h:commandButton></td>
+                            <td> <h:commandButton action="#{controlador.eliminar(l)}" value="eliminar"></h:commandButton></td>
+                        </tr>
+                    </c:forEach>
+
+                </tbody>
+            </table>
+
+
+
+        </h:form>
+
+        <h:form>
+            <a href="crear.xhtml"><p>crear</p></a>
+        </h:form>
+
+    </h:body>
+</html>
+
